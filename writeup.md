@@ -48,18 +48,18 @@ I have added 50 % dropout between each fully connected layer in oder to make rob
 As a preprocess, Picture is trimmed from 160x320 to 65x320, so that I can remove unnecessary area, which are sky and hood.
 Then data is given to following layer
 
-Convolutional 5x5x24, then relu activation
-Convolutional 5x5x48, then relu activation
-Convolutional 3x3x64, then relu activation
-convolutional 3x3x64, then relu activation
-Flatten
-Fully connected layer to 100 nodes
-Dropout (50%)
-Fully connected layer to 50 nodes
-Dropout(50%)
-Fully connected layer to 10 nodes
-Dropout(50%)
-Fully connected layer to 1 nodes (that will be a steering angle output)
+Convolutional 5x5x24, then relu activation  
+Convolutional 5x5x48, then relu activation  
+Convolutional 3x3x64, then relu activation  
+convolutional 3x3x64, then relu activation  
+Flatten  
+Fully connected layer to 100 nodes  
+Dropout (50%)  
+Fully connected layer to 50 nodes  
+Dropout(50%)  
+Fully connected layer to 10 nodes  
+Dropout(50%)  
+Fully connected layer to 1 nodes (that will be a steering angle output)  
 
 #### 2. Attempts to reduce overfitting in the model
 

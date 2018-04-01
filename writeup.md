@@ -10,6 +10,12 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
+[//]: # (Image References)
+
+[image1]: ./pics/center_pic.jpg "center lane picture"
+[image2]: ./pics/aug_pic.jpg "flipped view"
+[image3]: ./pics/crop_pic.jpg "cropped image"
+
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
@@ -48,6 +54,14 @@ I have added 50 % dropout between each fully connected layer in oder to make rob
 As a preprocess, Picture is trimmed from 160x320 to 65x320, so that I can remove unnecessary area, which are sky and hood.
 Then data is given to following layer
 
+picture cropping  
+original data:
+[image1]
+
+cropped data:
+[image3]
+
+
 Convolutional 5x5x24, then relu activation  
 Convolutional 5x5x48, then relu activation  
 Convolutional 3x3x64, then relu activation  
@@ -78,4 +92,6 @@ Also there are 3 points to give good training data to network.
 2) Training data was preprocessed with augumentation method. (flip picture holizontally, and flip steering angle positive and negative)
 3) right camera and left camera data are also used, with +0.2 and -0.2 steering angle.  PLease see In[8] portion of model.py
 
-
+flipping picture
+original data: [image1]  
+flipped data : [image2]  

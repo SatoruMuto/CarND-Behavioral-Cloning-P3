@@ -9,15 +9,6 @@ The goals / steps of this project are the following:
 * Test that the model successfully drives around track one without leaving the road
 * Summarize the results with a written report
 
-
-[//]: # (Image References)
-
-[image1]: (./pics/center_pic.jpg "center lane picture?raw=true)  
-[image2]: ./pics/aug_pic.jpg "flipped view"  
-[image3]: ./pics/crop_pic.jpg "cropped image"  
- 
-![image1](./pics/aug_pic.jpg?raw=true)
-
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
@@ -56,14 +47,6 @@ I have added 50 % dropout between each fully connected layer in oder to make rob
 As a preprocess, Picture is trimmed from 160x320 to 65x320, so that I can remove unnecessary area, which are sky and hood.
 Then data is given to following layer
 
-picture cropping  
-original data:
-[image1]
-
-cropped data:
-[image3]
-
-
 Convolutional 5x5x24, then relu activation  
 Convolutional 5x5x48, then relu activation  
 Convolutional 3x3x64, then relu activation  
@@ -80,7 +63,7 @@ Fully connected layer to 1 nodes (that will be a steering angle output)
 #### 2. Attempts to reduce overfitting in the model
 
 The model contains 3 dropout layers in between each fulley connected layer in order to reduce overfitting.
-Also tarining data is splitted in "tarining data" and "validation data" for both pair of picture and steering angle. 20% of data is used as validation data set, which are randomly seteclted by each trainig epoch. 
+Also tarining data is splitted in "tarining data" and "validation data" for both pair of picture and steering angle. 20% of data is used as validation data set. 
 
 #### 3. Model parameter tuning
 
@@ -94,11 +77,6 @@ Also there are 3 points to give good training data to network.
 1) The training data are obtained with clockwise drive and counter clockwise drive.
 2) Training data was preprocessed with augumentation method. (flip picture holizontally, and flip steering angle positive and negative)
 3) right camera and left camera data are also used, with +0.2 and -0.2 steering angle.  PLease see In[8] portion of model.py
-
-flipping picture
-original data: [image1]  
-flipped data : [image2]  
-
 
 For details about how I created the training data, see the next section. 
 
@@ -145,6 +123,9 @@ To capture good driving behavior, I first recorded 1 lap on track one using cent
 
 I then changed driving method. give no steering input until car goes close to curb. if car become close to curb, then give steering angle to correct vehicle direction. This method should give good conbination of picture and given steering angle, means if car is on the left of the lane, rotate tire to left. I have tried to reduce "steering angle is on right when car is left" situation.
 
+Here is example of way to drive car in training mode.
+![image1](./pics/example_drive.jpg?raw=true)
+
 I have driven on clockwise and counter clockwise , once for each direction. I thought I need more lap to create enough amount of data, however 2 laps are (at least) enough to go around the cource so I have not added data. More data may help for more complecated cource. 
 
 To augment the data sat, I also flipped images and angles thinking that this will help to normalize data. For example, below are images of original picture and flipped picture. When picture is flipped, steering angle is also flipped positive and negative.
@@ -163,5 +144,13 @@ After the collection process, I had 10506 data points, means X_train shape is (1
 I then preprocessed this data by trimming image from 160x320 to 65x320, so that I can remove unnecessary area, which are sky and hood.
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+Cropped picture:
+![](./pics/crop_pic.jpg?raw=true)
+
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The number of epochs used to create model.h5 is 6, which should be enough amount. here is training loss, validation loss plot. 
+
+![](./pics/graph_pic.jpg?raw=true)  
+ 
+ 
+I used an adam optimizer so that manually training the learning rate wasn't necessary.
 

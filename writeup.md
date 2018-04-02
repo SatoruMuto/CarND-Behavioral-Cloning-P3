@@ -99,9 +99,7 @@ Then I tried different network. I have copied Nvidia end to end learning model, 
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-#### 2. Final Model Architecture
-
-The final model architecture shown in model.py In[16] portion. This has following layers. There are 4 convolution layer, and 4 fully connected layer. The final layer output steering angle prediction given from input picture.
+#### 2. Final Model Architecturehe final model architecture shown in model.py In[16] portion. This has following layers. There are 4 convolution layer, and 4 fully connected layer. The final layer output steering angle prediction given from input picture.
 
 Convolutional 5x5x24, then relu activation  
 Convolutional 5x5x48, then relu activation  
@@ -149,7 +147,7 @@ Cropped picture:
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The number of epochs used to create model.h5 is 6, which should be enough amount. here is training loss, validation loss plot. 
 
-![](./pics/graph_pic.jpg?raw=true)  
+![](./pics/graph.jpg?raw=true)  
  
  
 I used an adam optimizer so that manually training the learning rate wasn't necessary.

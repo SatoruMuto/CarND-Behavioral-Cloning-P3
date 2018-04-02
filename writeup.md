@@ -145,7 +145,7 @@ I finally randomly shuffled the data set and put 20% of the data into a validati
 Cropped picture:
 ![](./pics/crop_pic.jpg?raw=true)
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The number of epochs used to create model.h5 is 6, which should be enough amount. here is training loss, validation loss plot. 
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The number of epochs used to create model.h5 is 6, which should be enough amount. here is training loss, validation loss plot. According to the graph, 3 epochs to 6 epochs should be used, above it there may be concern of overfitting. 
 
 ![](./pics/graph.jpg?raw=true)  
  
